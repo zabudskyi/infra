@@ -1,7 +1,7 @@
 # Ruby project
 
-This set of scripts will install ruby project.
-Just clone config-scripts branch and use scripts in this order.
+This set of scripts installs ruby project.
+You can run *install_ruby.sh* and *install_mongodb.sh* in any order but *deploy.sh* has to be the last one. 
 
 ### install_ruby.sh
 It installs rmv, ruby and bundler.
