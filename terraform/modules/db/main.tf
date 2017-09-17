@@ -1,8 +1,7 @@
 resource "google_compute_instance" "db" {
-  name = "reddit-db"
-
-  machine_type = "g1-small"
-  zone         = "europe-west1-b"
+  name         = "${var.db_instance_name}"
+  machine_type = "${var.db_machine_type}"
+  zone         = "${var.db_zone}"
 
   tags = ["reddit-db"]
 
