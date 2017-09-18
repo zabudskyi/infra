@@ -19,18 +19,18 @@ gcloud compute instances create --boot-disk-size=10GB --image=ubuntu-1604-xenial
 ```
 
 ## GCP image creation with packer
-### Fry image with ruby and mongodb
+### Bake image with ruby and mongodb
 `packer build -var-file=variables.json ubuntu16.json`
 Put your varialbes in varialbes.json file or use `packer build -var 'project_id=foo' -var 'source_image=bar' ubuntu16.json` command.
 You can specify machine_type as well.
 
-## Bake image with ruby, mongodb and reddit app
+### Bake image with ruby, mongodb and reddit app
 `packer build -var-file=variables.json immutable.json`
 
 ## Create VM instance with reddit app and apply firewall rules with Terraform
-#Check what will be done
+### Check what will be done
 `terraform plan`
-#Do it
+### Do it
 `terraform apply`
-#Destroy it
-`terraform destroy` 
+### Destroy it
+`terraform destroy`
