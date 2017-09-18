@@ -24,3 +24,32 @@ variable db_disk_image {
   description = "Disk image for reddit app"
   default     = "reddit-db-base"
 }
+
+variable app_instance_name {
+  description = "Instance name"
+}
+
+variable app_machine_type {
+  description = "Resources machine type"
+}
+
+variable app_zone {
+  description = "VM instance zone location"
+}
+
+variable db_instance_name {
+  description = "Instance name"
+}
+
+variable db_machine_type {
+  description = "Resources machine type"
+}
+
+variable db_zone {
+  description = "VM instance zone location"
+}
+
+variable source_ranges {
+  type        = "list"
+  description = "Allowed IP addresses"
+}

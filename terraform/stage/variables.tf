@@ -50,6 +50,6 @@ variable db_zone {
 }
 
 variable source_ranges {
-  type = "list"
+  type        = "list"
   description = "Allowed IP addresses"
 }
