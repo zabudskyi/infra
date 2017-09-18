@@ -28,9 +28,9 @@ You can specify machine_type as well.
 `packer build -var-file=variables.json immutable.json`
 
 ## Create VM instance with reddit app and apply firewall rules with Terraform
-#Check what will be done
+### Check what will be done
 `terraform plan`
-#Do it
+### Do it
 `terraform apply`
-#Destroy it
+### Destroy it
 `terraform destroy` 
