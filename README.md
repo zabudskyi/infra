@@ -19,7 +19,7 @@ gcloud compute instances create --boot-disk-size=10GB --image=ubuntu-1604-xenial
 ```
 
 ## GCP image creation with packer 
-### Fry image with ruby and mongodb 
+### Bake image with ruby and mongodb 
 `packer build -var-file=variables.json ubuntu16.json`
 Put your varialbes in varialbes.json file or use `packer build -var 'project_id=foo' -var 'source_image=bar' ubuntu16.json` command. You can specify machine_type as well.
 ## Bake image with ruby, mongodb and reddit app
