@@ -1,11 +1,11 @@
 provider "google" {
-  credentials = "${file("../account.json")}"
+  credentials = "${file("../../account.json")}"
   project     = "${var.project}"
   region      = "${var.region}"
 }
 
 module "app" {
-  source = "modules/app"
+  source = "../modules/app"
 
   public_key_path   = "${var.public_key_path}"
   app_disk_image    = "${var.app_disk_image}"
@@ -15,7 +15,7 @@ module "app" {
 }
 
 module "db" {
-  source = "modules/db"
+  source = "../modules/db"
 
   public_key_path  = "${var.public_key_path}"
   db_disk_image    = "${var.db_disk_image}"
@@ -25,6 +25,6 @@ module "db" {
 }
 
 module "vpc" {
-  source        = "modules/vpc"
+  source        = "../modules/vpc"
   source_ranges = "${var.source_ranges}"
 }

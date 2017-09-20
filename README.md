@@ -13,20 +13,24 @@ It installs, starts and enables mongodb. You have to run it with root privileges
 It deploys ruby project and starts puma web server to run it. You have to open tcp 9292 port in your firewall.
 
 
-### GCP instance creation with startup script
+## GCP instance creation with startup script
 You can also apply startup script with GCP instance creation. You can run gcloud with `--metadata-from-file startup-script=startup-script.sh` key like this
 ```
 gcloud compute instances create --boot-disk-size=10GB --image=ubuntu-1604-xenial-v20170815a --image-project=ubuntu-os-cloud --machine-type=g1-small --tags puma-server --restart-on-failure --zone=europe-west1-b --metadata-from-file startup-script=startup-script.sh PROJECT_NAME
 ```
 
+## Service account key creation
+You have to place your GCP Service account key in infra root and name it `account.json`. Packer and terraform will use it for Google cloud authentication.
+ [Check this link](https://cloud.google.com/iam/docs/creating-managing-service-account-keys)
+
 ## GCP image creation with packer
 ### Bake image with ruby and mongodb
-
 `packer build -var-file=variables.json ubuntu16.json`
+
 Put your varialbes in varialbes.json file or use `packer build -var 'project_id=foo' -var 'source_image=bar' ubuntu16.json` command.
 You can specify machine_type as well.
 
-## Bake image with ruby, mongodb and reddit app
+### Bake image with ruby, mongodb and reddit app
 `packer build -var-file=variables.json immutable.json`
 
 ## Create VM instance with reddit app and apply firewall rules with Terraform
@@ -35,4 +39,7 @@ You can specify machine_type as well.
 ### Do it
 `terraform apply`
 ### Destroy it
-`terraform destroy` 
+`terraform destroy`
+
+### Moving state file to google cloud bucket
+Remove "example" part from `backend.tf.example`. Bucket names reside in a single Cloud Storage namespace, which means that every bucket name must be unique.
