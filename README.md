@@ -40,3 +40,6 @@ You can specify machine_type as well.
 `terraform apply`
 ### Destroy it
 `terraform destroy`
+
+### Moving state file to google cloud bucket
+Remove "example" part from `backend.tf.example`. Bucket names reside in a single Cloud Storage namespace, which means that every bucket name must be unique.
