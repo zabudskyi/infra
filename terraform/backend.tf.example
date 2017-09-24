@@ -7,6 +7,6 @@ terraform {
   backend "gcs" {
     bucket  = "infra-bucket"
     path    = "terraform.tfstate"
-    project = "infra-180108"
+    project = "${var.project}"
   }
 }

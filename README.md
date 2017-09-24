@@ -41,6 +41,9 @@ You can specify machine_type as well.
 ### Destroy it
 `terraform destroy`
 
+### Moving state file to google cloud bucket
+Remove "example" part from `backend.tf.example`. Bucket names reside in a single Cloud Storage namespace, which means that every bucket name must be unique.
+
 ## Configure and deploy reddit app with ansible playbook
 ### Configure mondoDB
 ansible-playbook reddit_app.yml --tags db-tag --limit tag_reddit-db
