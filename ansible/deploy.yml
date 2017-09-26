@@ -18,14 +18,3 @@
     - name: restart puma
       become: true
       systemd: name=puma state=restarted
-
-  roles:
-    - role: jdauphant.nginx
-      become: true
-      nginx_sites:
-        default:
-          - listen 80
-          - root "/home/appuser/reddit/"
-          - location / {
-            proxy_pass http://localhost:9292;
-            }
