@@ -7,6 +7,7 @@
 	"builders": [
 		{
 			"type": "googlecompute",
+			"account_file": "../account.json",
 			"project_id": "{{user `project_id`}}",
 			"image_name": "reddit-db-base",
 			"source_image": "{{user `source_image`}}",
@@ -22,9 +23,8 @@
 	],
 	"provisioners": [
 		{
-			"type": "shell",
-			"script": "scripts/install_mongodb.sh",
-			"execute_command": "sudo {{.Path}}"
+			"type": "ansible",
+			"playbook_file": "../ansible/reddit_db.yml"
 		}
 	]
 }

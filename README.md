@@ -33,7 +33,7 @@ You can specify machine_type as well.
 ### Bake image with ruby, mongodb and reddit app
 `packer build -var-file=variables.json immutable.json`
 
-## Create VM instance with reddit app and apply firewall rules with Terraform
+## Create VM instances with base app and db images and apply firewall rules with Terraform
 ### Check what will be done
 `terraform plan`
 ### Do it
@@ -43,3 +43,11 @@ You can specify machine_type as well.
 
 ### Moving state file to google cloud bucket
 Remove "example" part from `backend.tf.example`. Bucket names reside in a single Cloud Storage namespace, which means that every bucket name must be unique.
+
+## Configure and deploy reddit app with ansible playbook
+### Configure mondoDB
+ansible-playbook reddit_app.yml --tags db-tag --limit tag_reddit-db
+### Configure puma service
+ansible-playbook reddit_app.yml --tags app-tag --limit tag_reddit-app
+### Deploy reddit app
+ansible-playbook reddit_app.yml --tags deploy-tag --limit tag_reddit-app
