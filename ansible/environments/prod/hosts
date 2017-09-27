@@ -1,0 +1,5 @@
+[tag_reddit-app]
+appserver ansible_ssh_host=35.187.87.59
+
+[tag_reddit-db]
+dbserver ansible_ssh_host=35.195.160.108

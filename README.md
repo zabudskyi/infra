@@ -45,9 +45,14 @@ You can specify machine_type as well.
 Remove "example" part from `backend.tf.example`. Bucket names reside in a single Cloud Storage namespace, which means that every bucket name must be unique.
 
 ## Configure and deploy reddit app with ansible playbook
-### Configure mondoDB
-ansible-playbook reddit_app.yml --tags db-tag --limit tag_reddit-db
-### Configure puma service
-ansible-playbook reddit_app.yml --tags app-tag --limit tag_reddit-app
-### Deploy reddit app
-ansible-playbook reddit_app.yml --tags deploy-tag --limit tag_reddit-app
+### 1. In one play in one file, define hosts with `--limit` and play part with `--tags`
+###   - Configure mondoDB
+      ansible-playbook reddit_app_one_play.yml --tags db-tag --limit tag_reddit-db
+###   - Configure puma service
+      ansible-playbook reddit_app_one_play.yml --tags app-tag --limit tag_reddit-app
+###   - Deploy reddit app
+      ansible-playbook reddit_app_one_play.yml --tags deploy-tag --limit tag_reddit-app
+### 2. In three plays in one file, hosts are defined. You can run plays with `--tags` or just run all three plays at once
+      ansible-playbook reddit_app_multiple_plays.yml
+### 3. In three plays in three files gathered with main site.yml playbook
+      ansible-playbook site.yml 
