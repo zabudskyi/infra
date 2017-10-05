@@ -2,6 +2,12 @@
 - name: Configure MongoDB
   hosts: tag_reddit-db
   become: true
+  gather_facts: false
+
+  pre_tasks:
+    - name: Install python for Ansible
+      raw: test -e /usr/bin/python || (apt -y update && apt install -y python-minimal)
+      changed_when: false
 
   roles:
     - db
