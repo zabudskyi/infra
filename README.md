@@ -55,4 +55,21 @@ Remove "example" part from `backend.tf.example`. Bucket names reside in a single
 ### 2. In three plays in one file, hosts are defined. You can run plays with `--tags` or just run all three plays at once
       ansible-playbook reddit_app_multiple_plays.yml
 ### 3. In three plays in three files gathered with main site.yml playbook
-      ansible-playbook site.yml 
+      ansible-playbook site.yml
+## DB role testing
+Install requirements for testing
+```
+pip install -r requirements.txt
+```
+Create testing VM
+```
+molecule create
+```
+Apply testing playbook
+```
+molecule converge
+```
+Run tests
+```
+molecule verify
+```
