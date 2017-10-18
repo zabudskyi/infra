@@ -49,23 +49,32 @@ Prerequisites:
 - Install ansible requirements `pip install -r requirements.txt`
 ### 1. In one play in one file, define hosts with `--limit` and play part with `--tags`
 ###   - Configure mondoDB
-      ansible-playbook reddit_app_one_play.yml --tags db-tag --limit tag_reddit-db
+`ansible-playbook reddit_app_one_play.yml --tags db-tag --limit tag_reddit-db`
 ###   - Configure puma service
-      ansible-playbook reddit_app_one_play.yml --tags app-tag --limit tag_reddit-app
+`ansible-playbook reddit_app_one_play.yml --tags app-tag --limit tag_reddit-app`
 ###   - Deploy reddit app
-      ansible-playbook reddit_app_one_play.yml --tags deploy-tag --limit tag_reddit-app
+`ansible-playbook reddit_app_one_play.yml --tags deploy-tag --limit tag_reddit-app`
 ### 2. In three plays in one file, hosts are defined. You can run plays with `--tags` or just run all three plays at once
-      ansible-playbook reddit_app_multiple_plays.yml
+`ansible-playbook reddit_app_multiple_plays.yml`
 ### 3. In three plays in three files gathered with main site.yml playbook
 Prerequisites:
 - Install role `ansible-galaxy install -r requirements.yml`
-      ansible-playbook site.yml
+
+`ansible-playbook site.yml`
 ## DB role testing
 Install requirements for testing
-      pip install -r requirements.txt
+```
+pip install -r requirements.txt
+```
 Create testing VM
-      molecule create
+```
+molecule create
+```
 Apply testing playbook
-      molecule converge
+```
+molecule converge
+```
 Run tests
-      molecule verify
+```
+molecule verify
+```
