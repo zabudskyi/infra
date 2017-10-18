@@ -59,7 +59,6 @@ Prerequisites:
 ### 3. In three plays in three files gathered with main site.yml playbook
 Prerequisites:
 - Install role `ansible-galaxy install -r requirements.yml`
-<<<<<<< HEAD
 
 `ansible-playbook site.yml`
 ## DB role testing
@@ -79,15 +78,3 @@ Run tests
 ```
 molecule verify
 ```
-=======
-`ansible-playbook site.yml`
-## DB role testing
-Install requirements for testing
-`pip install -r requirements.txt`
-Create testing VM
-`molecule create`
-Apply testing playbook
-`molecule converge`
-Run tests
-`molecule verify`
->>>>>>> 690b2ae31744de0a39e3e6cbfdb29494e60248ab
