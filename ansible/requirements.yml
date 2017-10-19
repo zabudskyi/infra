@@ -1,0 +1,4 @@
+---
+- name: ansible-db-role
+  src: https://github.com/zabudskyi/ansible-db-role.git
+  version: master
